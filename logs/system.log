@@ -1,5 +1,0 @@
-{"timestamp": "2026-02-14T17:54:05", "ts_ms": 1771088045441, "level": "INFO", "module": "app", "event": "BOOT_OK", "payload": {}}
-{"timestamp": "2026-02-14T17:54:19", "ts_ms": 1771088059854, "level": "INFO", "module": "app", "event": "BOOT_OK", "payload": {}}
-{"timestamp": "2026-02-14T17:56:18", "ts_ms": 1771088178365, "level": "INFO", "module": "app", "event": "BOOT_OK", "payload": {}}
-{"timestamp": "2026-02-14T18:01:38", "ts_ms": 1771088498735, "level": "INFO", "module": "app", "event": "EVENT_CAPTURED", "payload": {"event": "EMOTION_UPDATED"}}
-{"timestamp": "2026-02-14T18:01:38", "ts_ms": 1771088498735, "level": "INFO", "module": "app", "event": "EVENT_CAPTURED", "payload": {"event": "USER_SPOKE"}}
