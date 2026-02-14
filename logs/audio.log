@@ -1,2 +1,3 @@
 {"timestamp": "2026-02-14T17:54:05", "ts_ms": 1771088045440, "level": "INFO", "module": "audio.stt", "event": "STT_RESULT", "payload": {"text": "Salut Kaguya", "event_id": "1e26b297-caf5-4ce2-9e84-b0600a62184d"}}
 {"timestamp": "2026-02-14T17:54:19", "ts_ms": 1771088059853, "level": "INFO", "module": "audio.stt", "event": "STT_RESULT", "payload": {"text": "Salut Kaguya", "event_id": "c0aa666e-e2a5-4fc1-9c46-c132b8b0f272"}}
+{"timestamp": "2026-02-14T17:56:18", "ts_ms": 1771088178365, "level": "INFO", "module": "audio.stt", "event": "STT_RESULT", "payload": {"text": "Salut Kaguya", "event_id": "1bcc7400-3a50-469a-b214-c3206dde0681"}}

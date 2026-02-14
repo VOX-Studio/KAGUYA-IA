@@ -1,0 +1,1 @@
+{"timestamp": "2026-02-14T18:01:38", "ts_ms": 1771088498735, "level": "EMOTION_UPDATE", "module": "emotion", "event": "STATE_UPDATED", "payload": {"irritation": 0.0, "trust": 0.52, "affection": 0.5, "fatigue": 0.0, "curiosity": 0.5, "focus": 0.5, "satisfaction": 0.5}}

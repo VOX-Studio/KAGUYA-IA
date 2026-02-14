@@ -225,4 +225,8 @@ En contribuant au projet Kaguya, vous acceptez :
 
 **Dernière mise à jour : 2026-02-15**
 
+11. Le projet utilise un layout src/. Toute exécution doit passer par
+   installation editable ou python -m.
+
+
 </div>

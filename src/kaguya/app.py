@@ -1,8 +1,5 @@
 """
-Point d'entrée minimal pour tester EventBus + Logger.
-
-Usage:
-- python -m kaguya.app
+Point d'entrée principal – Boucle interactive minimale.
 """
 
 from __future__ import annotations
@@ -11,35 +8,44 @@ import asyncio
 
 from kaguya.core.event_bus import EventBus, Event
 from kaguya.core.logger import LoggerManager
+from kaguya.emotion import EmotionEngine
+from kaguya.brain import BrainStub
 
 
 async def main() -> None:
+    print("Kaguya boot...")
+
     bus = EventBus()
     logger = LoggerManager()
 
-    async def on_user_spoke(ev: Event):
-        logger.write(
-            channel="audio",
-            level="INFO",
-            module="audio.stt",
-            event="STT_RESULT",
-            payload={"text": ev.payload.get("text"), "event_id": ev.event_id},
+    emotion_engine = EmotionEngine(bus, logger)
+    brain = BrainStub(bus, logger)
+
+    await emotion_engine.start()
+    await brain.start()
+
+    async def console_output(event: Event):
+        print(f"Kaguya : {event.payload.get('text')}")
+
+    await bus.subscribe("KAGUYA_RESPONSE", console_output)
+
+    print("Tu peux parler à Kaguya (écris 'exit' pour quitter)\n")
+
+    while True:
+        user_input = input("Toi : ")
+
+        if user_input.lower() == "exit":
+            break
+
+        await bus.publish(
+            Event(
+                name="USER_SPOKE",
+                source="console",
+                payload={"text": user_input}
+            )
         )
-        # Exemple: transmettre au brain via event
-        logger.write(
-            channel="brain",
-            level="INFO",
-            module="brain",
-            event="USER_INPUT_RECEIVED",
-            payload={"text": ev.payload.get("text"), "event_id": ev.event_id},
-        )
 
-    await bus.subscribe("USER_SPOKE", on_user_spoke)
-
-    # Simule une transcription STT
-    await bus.publish(Event(name="USER_SPOKE", source="audio.stt", payload={"text": "Salut Kaguya"}))
-
-    logger.write(channel="system", level="INFO", module="app", event="BOOT_OK", payload={})
+    print("Arrêt de Kaguya.")
 
 
 if __name__ == "__main__":
